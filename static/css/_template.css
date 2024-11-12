@@ -8,16 +8,16 @@
     --font-size: 16px;
 
     /* Cor de fundo do site */
-    --background-color: rgb(23, 64, 92);
+    --background-color: rgb(60, 196, 71);
 
     /* Cor 1 do tema */
-    --primary-color: steelblue;
+    --primary-color: rgb(180, 70, 153);
 
     /* Cor 2 do tema */
-    --secondary-color: orange;
+    --secondary-color: rgb(83, 63, 49);
 
     /* Cor 3 do tema */
-    --tertiary-color: orangered;
+    --tertiary-color: rgb(34, 255, 0);
 
     /* Cor de fundo das caixas*/
     --box-background-color: white;
@@ -102,6 +102,10 @@ button {
     color: var(--secondary-color);
     -webkit-text-stroke: var(--logo-border);
     text-shadow: 2px 2px 5px grey;
+}
+
+#wrap>header img{
+    width: 4rem;
 }
 
 #wrap>header h1 {

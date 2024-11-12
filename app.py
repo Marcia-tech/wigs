@@ -83,7 +83,7 @@ def index():  # Função executada ao acessar a rota raiz
 
     # Dados, variáveis e valores a serem passados para o template HTML
     pagina = {
-        'titulo': 'CRUDTrecos',
+        'titulo': 'CRUDtrecos',
         'usuario': g.usuario,
         'trecos': trecos,
         'acao': acao,
