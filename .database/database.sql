@@ -35,6 +35,7 @@ CREATE TABLE treco (
     t_usuario INT NOT NULL,
     t_nome VARCHAR(127) NOT NULL,
     t_descricao TEXT,
+    t_preco VARCHAR(63) DEFAULT '0,00',
     t_localizacao VARCHAR(255),
     t_status ENUM ('on', 'off', 'del') DEFAULT 'on',
     FOREIGN KEY (t_usuario) REFERENCES usuario(u_id)
@@ -73,30 +74,35 @@ INSERT INTO treco (
     t_usuario,
     t_nome,
     t_descricao,
-    t_localizacao
+    t_localizacao,
+    t_preco
+
 ) VALUES ( 
     'https://picsum.photos/200', 
     '1', -- Id de um usuário existente
     'Caneca de café do Elon Musk', 
     'Uma caneca feia pra caracas que arrumei em algum lugar.', 
-    'Na estante da sala, prateleira de baixo.'
+    'Na estante da sala, prateleira de baixo.',
+    '15,99'
 ), (
     'https://picsum.photos/199',
     '1',
     'Caneca do Curintia',
     'Cabem 300 ml, mas está com a alça quebrada e colada com superbondi.',
-    'Na estante da sala, prateleira do meio.'
+    'Na estante da sala, prateleira do meio.',
+    '15,99'
+
 );
 
 -- Inserções da IA (veja o prompt no material da aula 11)
-INSERT INTO treco (t_foto, t_usuario, t_nome, t_descricao, t_localizacao) VALUES
-    ('https://picsum.photos/201', '1', 'Livro de Física Quântica', 'Um livro velho e empoeirado que encontrei na feira.', 'Na mesa do escritório, ao lado do laptop.'),
-    ('https://picsum.photos/202', '2', 'Câmera Polaroid', 'Uma câmera antiga, mas ainda funcional.', 'Na prateleira do quarto, junto às fotos antigas.'),
-    ('https://picsum.photos/203', '1', 'Relógio de Parede Vintage', 'Relógio com design clássico, não funciona mais.', 'Na parede da cozinha, ao lado do armário.'),
-    ('https://picsum.photos/204', '2', 'Guitarra Elétrica', 'Guitarra sem uma corda, mas ainda toca bem.', 'No canto da sala, perto do amplificador.'),
-    ('https://picsum.photos/205', '1', 'Bolsa de Couro', 'Bolsa de couro marrom, um pouco desgastada.', 'No guarda-roupa, pendurada ao lado dos casacos.'),
-    ('https://picsum.photos/206', '2', 'Vinil dos Beatles', 'Disco de vinil, edição original dos anos 60.', 'Na prateleira da sala, junto aos outros discos.'),
-    ('https://picsum.photos/207', '1', 'Óculos de Sol Ray-Ban', 'Óculos com uma lente riscada.', 'Na gaveta do armário, junto aos acessórios.'),
-    ('https://picsum.photos/208', '2', 'Estátua de Buda', 'Pequena estátua de Buda de madeira.', 'No altar da sala, cercada de velas.'),
-    ('https://picsum.photos/209', '1', 'Bola de Futebol Autografada', 'Bola autografada por um jogador famoso.', 'Na estante da sala, prateleira de cima.'),
-    ('https://picsum.photos/210', '2', 'Computador Retro', 'Computador antigo dos anos 80, ainda funcionando.', 'No escritório, em cima da mesa antiga.');
+INSERT INTO treco (t_foto, t_usuario, t_nome, t_descricao, t_localizacao, t_preco) VALUES
+    ('https://picsum.photos/201', '1', 'Livro de Física Quântica', 'Um livro velho e empoeirado que encontrei na feira.', 'Na mesa do escritório, ao lado do laptop.','15,99'),
+    ('https://picsum.photos/202', '2', 'Câmera Polaroid', 'Uma câmera antiga, mas ainda funcional.', 'Na prateleira do quarto, junto às fotos antigas.','15,99'),
+    ('https://picsum.photos/203', '1', 'Relógio de Parede Vintage', 'Relógio com design clássico, não funciona mais.', 'Na parede da cozinha, ao lado do armário.','15,99'),
+    ('https://picsum.photos/204', '2', 'Guitarra Elétrica', 'Guitarra sem uma corda, mas ainda toca bem.', 'No canto da sala, perto do amplificador.','15,99'),
+    ('https://picsum.photos/205', '1', 'Bolsa de Couro', 'Bolsa de couro marrom, um pouco desgastada.', 'No guarda-roupa, pendurada ao lado dos casacos.','15,99'),
+    ('https://picsum.photos/206', '2', 'Vinil dos Beatles', 'Disco de vinil, edição original dos anos 60.', 'Na prateleira da sala, junto aos outros discos.','15,99'),
+    ('https://picsum.photos/207', '1', 'Óculos de Sol Ray-Ban', 'Óculos com uma lente riscada.', 'Na gaveta do armário, junto aos acessórios.','15,99'),
+    ('https://picsum.photos/208', '2', 'Estátua de Buda', 'Pequena estátua de Buda de madeira.', 'No altar da sala, cercada de velas.','15,99'),
+    ('https://picsum.photos/209', '1', 'Bola de Futebol Autografada', 'Bola autografada por um jogador famoso.', 'Na estante da sala, prateleira de cima.','15,99'),
+    ('https://picsum.photos/210', '2', 'Computador Retro', 'Computador antigo dos anos 80, ainda funcionando.', 'No escritório, em cima da mesa antiga.','15,99');

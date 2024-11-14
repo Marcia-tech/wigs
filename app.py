@@ -67,7 +67,7 @@ def index():  # Função executada ao acessar a rota raiz
 
     # Um SQL de teste para exibir todos os 'trecos' do usuário conectado
     sql = '''
-        SELECT t_id, t_foto, t_nome, t_descricao, t_localizacao
+        SELECT t_id, t_foto, t_nome, t_descricao, t_localizacao, t_preco
         FROM treco
         WHERE t_usuario = %s
             AND t_status = 'on'
@@ -117,8 +117,8 @@ def novo():  # Função executada para cadastrar novo treco
         # Grava os dados no banco de dados
         sql = '''
             INSERT INTO treco (
-                t_usuario, t_foto, t_nome, t_descricao, t_localizacao
-            ) VALUES (%s, %s, %s, %s, %s)
+                t_usuario, t_foto, t_nome, t_descricao, t_localizacao, t_preco
+            ) VALUES (%s, %s, %s, %s, %s, %s)
         '''
         cur = mysql.connection.cursor()
         cur.execute(sql, (
@@ -127,6 +127,7 @@ def novo():  # Função executada para cadastrar novo treco
             form['nome'],
             form['descricao'],
             form['localizacao'],
+            form['preco']
         ))
         mysql.connection.commit()
         cur.close()
@@ -162,15 +163,17 @@ def edita(id):
             SET t_foto = %s,
                 t_nome = %s,
                 t_descricao = %s,
-                t_localizacao = %s
+                t_localizacao = %s,
+                t_preco = %s
             WHERE t_id = %s
         '''
         cur = mysql.connection.cursor()
-        cur.execute(sql, (
+        cur.execute(sql, ( 
             form['foto'],
             form['nome'],
             form['descricao'],
             form['localizacao'],
+            form['preco'],
             id,
         ))
         mysql.connection.commit()
